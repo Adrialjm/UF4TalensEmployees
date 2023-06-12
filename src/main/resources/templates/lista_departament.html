@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Departaments</title>
+  <!-- Bootstrap 5 CSS -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+        integrity="sha384-pzjyokbO6MwQnGQqMnkqY2A6qrVnVekUrJFZNJsFt/QG/zzkkLuT7ZCuZBfyRRS1" rel="stylesheet">
+  <style>
+    body {
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    thead {
+      background-color: #333;
+      color: white;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h3>Departaments</h3>
+  <table class="table">
+    <thead class="table-dark">
+    <tr>
+      <th>Id departament</th>
+      <th>Títol</th>
+      <th>Descripció</th>
+      <th>URL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="departament : ${departaments}">
+      <td th:text="${departament.departamentId}"></td>
+      <td th:text="${departament.titol}"></td>
+      <td th:text="${departament.descripcio}"></td>
+      <td th:text="${departament.url}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Bootstrap 5 JavaScript bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

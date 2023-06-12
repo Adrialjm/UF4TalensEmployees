@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>Crear treballador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 16px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h2>Crear treballadors</h2>
+<form th:action="@{/api/save}"  th:object="${treballador}" method="post">
+    <div>
+        <label for="treballador_nom">Nom del treballador:</label>
+        <input th:field="${treballador.treballadorNom}" type="text" id="treballador_nom" name="treballador_nom" required>
+    </div>
+    <div>
+        <label for="treballador_cognom">Cognom del treballador:</label>
+        <input th:field="${treballador.treballadorCognom}" type="text" id="treballador_cognom" name="treballador_cognom" required>
+    </div>
+    <div>
+        <label for="genere">Gènere del treballador:</label>
+        <input th:field="${treballador.genere}" type="text" id="genere" name="genere" required>
+    </div>
+    <div>
+        <label for="data_naixement">Data de naixement del treballador:</label>
+        <input th:field="${treballador.dataNaixement}" type="text" id="data_naixement" name="data_naixement" required>
+    </div>
+    <div>
+        <label for="data_contractacio">Data de contractació del treballador:</label>
+        <input th:field="${treballador.dataContractacio}" type="text" id="data_contractacio" name="data_contractacio" required>
+    </div>
+    <div>
+        <label for="salari">Salari del treballador:</label>
+        <input th:field="${treballador.salari}" type="text" id="salari" name="salari" required>
+    </div>
+    <div>
+        <h3><b>Departamento</b></h3>
+        <select th:name="departament_id">
+            <option th:each="departament : ${departaments}" th:value="${departament.departamentId}" th:text="${departament.titol}"></option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <button type="submit">Crear treballador</button>
+    </div>
+</form>
+</body>
+</html>
